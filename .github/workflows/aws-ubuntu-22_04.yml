@@ -1,0 +1,96 @@
+name: "build-toolset-image"
+
+on:
+  workflow_dispatch:
+    inputs:
+      instanceType:
+        description: "The instance type used to build the AMI"
+        required: true
+        type: choice
+        options:
+        - c4.xlarge
+        - t3a.xlarge
+        default: "t3a.xlarge"
+      region:
+        description: "The AWS region where the AMI will be available"
+        required: true
+        type: choice
+        options:
+        - us-east-1
+        - us-east-2
+        - us-west-2
+        - af-south-1
+        - ap-east-1
+        - ap-south-1
+        - ap-northeast-1
+        - ap-northeast-2
+        - ap-northeast-3
+        - ap-southeast-1
+        - ap-southeast-2
+        - ca-central-1
+        - eu-west-1
+        - eu-west-2
+        - eu-west-3
+        - eu-north-1
+        - eu-south-1
+        - me-south-1
+        - sa-east-1
+        default: "us-west-2"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout packer HCL
+        uses: actions/checkout@v4
+        with:
+          repository: clicktruck/aws-packer
+
+      - name: Checkout scripts
+        uses: actions/checkout@v4
+        with:
+          repository: clicktruck/scripts
+
+      - name: Copy init.sh
+        uses: canastro/copy-file-action@master
+        with:
+          source: "init.sh"
+          target: "ubuntu/22_04/init.sh"
+
+      - name: Copy inventory.sh
+        uses: canastro/copy-file-action@master
+        with:
+          source: "inventory.sh"
+          target: "ubuntu/22_04/inventory.sh"
+
+      - name: Copy kind-load-cafile.sh
+        uses: canastro/copy-file-action@master
+        with:
+          source: "kind-load-cafile.sh"
+          target: "ubuntu/22_04/kind-load-cafile.sh"
+
+      - name: Copy install-krew-and-plugins.sh
+        uses: canastro/copy-file-action@master
+        with:
+          source: "install-krew-and-plugins.sh"
+          target: "ubuntu/22_04/install-krew-and-plugins.sh"
+
+      - name: Use latest Packer
+        uses: hashicorp-contrib/setup-packer@v3
+        with:
+          packer-version: 1.9.4
+
+      - name: Initialize Packer
+        working-directory: ./ubuntu/22_04
+        run: packer init .
+
+      - name: Build image from template
+        working-directory: ./ubuntu/22_04
+        run: packer build -only=standard.* -var "ami_name=k8s-toolset-image" -var "instance_type=${{ github.event.inputs.instanceType }}" -var "vpc_region=${{ github.event.inputs.region }}" .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_REGION: ${{ github.event.inputs.region }}
