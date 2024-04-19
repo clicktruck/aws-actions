@@ -1,12 +1,11 @@
 FROM ubuntu:22.04
 
-LABEL "com.github.actions.name"="eks-kubeconfig-action"
-LABEL "com.github.actions.description"="Use eksctl CLI to obtain .kube/config then emit contents base 64 encoded"
-LABEL "com.github.actions.icon"="server"
-LABEL "com.github.actions.color"="blue"
-
-LABEL "repository"="https://github.com/clicktruck/aws-actions/docker/actions/aws/eks-kubeconfig-action"
-LABEL "maintainer"="Chris Phillipson <chris@clicktruck.org>"
+LABEL "com.github.actions.name"="eks-kubeconfig-action" \
+      "com.github.actions.description"="Use eksctl CLI to obtain .kube/config then emit contents base 64 encoded" \
+      "com.github.actions.icon"="server" \
+      "com.github.actions.color"="blue" \
+      "repository"="https://github.com/clicktruck/aws-actions/docker/actions/aws/eks-kubeconfig-action" \
+      "maintainer"="Chris Phillipson <chris@clicktruck.org>"
 
 RUN apt update && apt install -y --no-install-recommends \
     && bash coreutils ca-certificates curl \

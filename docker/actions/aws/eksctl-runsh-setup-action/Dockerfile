@@ -1,12 +1,11 @@
 FROM ubuntu:22.04
 
-LABEL "com.github.actions.name"="eksctl-runsh-setup-action"
-LABEL "com.github.actions.description"="Execute a shell script where eksctl CLI commands may be invoked one or more times"
-LABEL "com.github.actions.icon"="server"
-LABEL "com.github.actions.color"="blue"
-
-LABEL "repository"="https://github.com/clicktruck/aws-actions/docker/actions/aws/eksctl-runsh-setup-action"
-LABEL "maintainer"="Chris Phillipson <chris@clicktruck.org>"
+LABEL "com.github.actions.name"="eksctl-runsh-setup-action" \
+      "com.github.actions.description"="Execute a shell script where eksctl CLI commands may be invoked one or more times" \
+      "com.github.actions.icon"="server" \
+      "com.github.actions.color"="blue" \
+      "repository"="https://github.com/clicktruck/aws-actions/docker/actions/aws/eksctl-runsh-setup-action" \
+      "maintainer"="Chris Phillipson <chris@clicktruck.org>"
 
 RUN apt update && apt install -y --no-install-recommends \
     && bash coreutils ca-certificates curl \
