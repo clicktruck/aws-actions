@@ -131,15 +131,15 @@ export AWS_SESSION_TOKEN=
 
 ### Create KMS Key
 
-Under Github Actions, manually trigger [dispatch-key-management-service](../../../actions/workflows/aws-kms-dispatch.yml).
+Under Github Actions, manually trigger [dispatch-key-management-service](../../actions/workflows/aws-kms-dispatch.yml).
 
 ### Create Remote Backend Support
 
-Under Github Actions, manually trigger [dispatch-remote-backend-for-terraform-state](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml).
+Under Github Actions, manually trigger [dispatch-remote-backend-for-terraform-state](../../actions/workflows/aws-provided-remote-backend-dispatch.yml).
 
 ### Create Toolset AMI
 
-Under Github Actions, manually trigger [build-toolset-image](../../../actions/workflows/aws-ubuntu-22_04.yml).
+Under Github Actions, manually trigger [build-toolset-image](../../actions/workflows/aws-ubuntu-22_04.yml).
 
 If the job completes successfully, you will need to look up the `Owner account ID`.
 
@@ -162,7 +162,7 @@ Alternatively, you could create the AMI by executing the aws CLI and Packer scri
 
 Take this path when you want to get up-and-running as quickly as possible with the least amount of fuss.
 
-Under Github Actions, manually trigger [create-workshop-environment](../../../actions/workflows/aws-e2e.yml)
+Under Github Actions, manually trigger [create-workshop-environment](../../actions/workflows/aws-e2e.yml)
 
 * The DNS Zone name must be a domain you control and can configure nameservers for
 * Instance types can be found [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/general-purpose-instances.html#general-purpose-hardware) - `m5a.large` is a good option
@@ -172,7 +172,7 @@ Under Github Actions, manually trigger [create-workshop-environment](../../../ac
 
 Administer resources one at a time.  Take this path when you want to take a closer look at the GitHub Actions and Terraform modules.
 
-There are two types of actions defined, those that can be manually triggered (i.e., dispatched), and those that can only be called by another action.  All actions are located [here](../../../actions) and can be run by providing the required parameters.  Go [here](../.github/workflows) to inspect the source for each action.
+There are two types of actions defined, those that can be manually triggered (i.e., dispatched), and those that can only be called by another action.  All actions are located [here](../../actions) and can be run by providing the required parameters.  Go [here](../.github/workflows) to inspect the source for each action.
 
 > Note that for most dispatch actions, you have the option to either create or destroy the resources.
 
@@ -180,20 +180,20 @@ There are two types of actions defined, those that can be manually triggered (i.
 
 | Module       | Github Action       | Terraform               |
 | :---       | :---:               | :---:                   |
-| KMS |[:white_check_mark:](../../../actions/workflows/aws-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/kms) |
-| Remote backend | [:white_check_mark:](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/tfstate-support) |
-| Keypair | [:white_check_mark:](../../../actions/workflows/aws-keypair-dispatch.yml) | [:white_check_mark:](../terraform/azure/keypair) |
-| VPC | [:white_check_mark:](../../../actions/workflows/aws-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/virtual-network) |
-| DNS Zone for base domain | [:white_check_mark:](../../../actions/workflows/aws-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/main-dns) |
-| DNS Zone for sub domain | [:white_check_mark:](../../../actions/workflows/aws-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/child-dns) |
-| EKS Cluster | [:white_check_mark:](../../../actions/workflows/aws-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster) |
+| KMS |[:white_check_mark:](../../actions/workflows/aws-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/kms) |
+| Remote backend | [:white_check_mark:](../../actions/workflows/aws-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/tfstate-support) |
+| Keypair | [:white_check_mark:](../../actions/workflows/aws-keypair-dispatch.yml) | [:white_check_mark:](../terraform/azure/keypair) |
+| VPC | [:white_check_mark:](../../actions/workflows/aws-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/virtual-network) |
+| DNS Zone for base domain | [:white_check_mark:](../../actions/workflows/aws-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/main-dns) |
+| DNS Zone for sub domain | [:white_check_mark:](../../actions/workflows/aws-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/child-dns) |
+| EKS Cluster | [:white_check_mark:](../../actions/workflows/aws-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster) |
 | EKS Cluster Addons | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-addons) |
 | EKS Cluster Storage Updates | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-storage) |
-| Container registry | [:white_check_mark:](../../../actions/workflows/aws-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/registry) |
-| Harbor | [:white_check_mark:](../../../actions/workflows/aws-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
-| Bastion | [:white_check_mark:](../../../actions/workflows/aws-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/bastion) |
-| Secrets Manager | [:white_check_mark:](../../../actions/workflows/aws-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager) |
-| Secrets | [:white_check_mark:](../../../actions/workflows/aws-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager-secrets) |
+| Container registry | [:white_check_mark:](../../actions/workflows/aws-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/registry) |
+| Harbor | [:white_check_mark:](../../actions/workflows/aws-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
+| Bastion | [:white_check_mark:](../../actions/workflows/aws-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/bastion) |
+| Secrets Manager | [:white_check_mark:](../../actions/workflows/aws-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager) |
+| Secrets | [:white_check_mark:](../../actions/workflows/aws-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager-secrets) |
 
 
 ## Vending credentials
@@ -214,11 +214,11 @@ Refer to [Tutorial: Create and retrieve a secret](https://docs.aws.amazon.com/se
 
 ## Cleaning up everything
 
-In order to destroy all of the resources created you can use the Github action [destroy-workshop-environment](../../../actions/workflows/aws-e2e-destroy.yml).  This action should be run with the same inputs used to create an environment.
+In order to destroy all of the resources created you can use the Github action [destroy-workshop-environment](../../actions/workflows/aws-e2e-destroy.yml).  This action should be run with the same inputs used to create an environment.
 
 You'll want also want to `destroy` the remote backend support and KMS key by executing the following jobs:
 
-* [dispatch-remote-backend-for-terraform-state](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml)
-* [dispatch-key-management-service](../../../actions/workflows/aws-kms-dispatch.yml)
+* [dispatch-remote-backend-for-terraform-state](../../actions/workflows/aws-provided-remote-backend-dispatch.yml)
+* [dispatch-key-management-service](../../actions/workflows/aws-kms-dispatch.yml)
 
 > Don't forget to choose `destroy` before clicking on the `Run workflow` button.
