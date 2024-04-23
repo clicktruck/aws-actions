@@ -163,7 +163,7 @@ jobs:
       ROUTE53_ZONE_AWS_ACCESS_KEY_ID: ${{ github.event.inputs.aws-access-key-id }}
       ROUTE53_ZONE_AWS_SECRET_ACCESS_KEY: ${{ github.event.inputs.aws-secret-access-key }}
   install-tanzu-ingress-into-harbor-cluster:
-    uses: ./.github/workflows/install-tanzu-ingress.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-ingress.yml@main
     needs: [obtain-base64-encoded-kubeconfig-for-harbor-cluster,fetch-route53-hosted-zone-id]
     with:
       target-cloud: "aws"
