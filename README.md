@@ -117,8 +117,6 @@ A PAT is required so that workflows can add secrets to the repository in order t
 Setup some Github secrets with the SP credentials.  Documentation can be found [here](https://docs.github.com/en/actions/security-guides/encrypted-secrets).  You might also consider using [gh secret set](https://cli.github.com/manual/gh_secret_set) command to set these individually.  Or, after exporting all environment variables below, execute [gh-secrets-setup.sh](https://github.com/clicktruck/scripts/blob/main/gh-set-secrets.sh) at the command-line passing `aws` as an execution argument.
 
 ```bash
-# This is a personal access token that was created in an above step that allows for the workflows to write secrets
-export PA_TOKEN=
 # The access key identifier associated with role-based temporary security credentials vended from AWS Security Token Service
 export AWS_ACCESS_KEY_ID=
 # The access key's secret associated with role-based temporary security credentials vended from AWS Security Token Service
@@ -128,6 +126,7 @@ export AWS_SESSION_TOKEN=
 ```
 > Setting up a `AWS_SESSION_TOKEN` secret is optional.  However, if you have to obtain an AWS Session Token Service token (via a provider like [CloudGate](https://console.cloudgate.vmware.com/ui/#/login)) in order to authenticate to an AWS account, you will need to periodically update the `AWS_*` secret values as the token is typically set to expire.
 
+You'll also want to [create another secret](https://github.com/clicktruck/scripts/blob/main/set-personal-access-token.sh) whose value is the fine-grained personal token you created in the prior step.
 
 ### Create KMS Key
 
