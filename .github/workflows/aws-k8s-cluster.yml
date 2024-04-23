@@ -366,7 +366,7 @@ jobs:
   install-tanzu-data-services-repo:
     if: inputs.action == 'create'
     needs: [obtain-base64-encoded-kubeconfig-from-cluster,install-tanzu-cluster-essentials]
-    uses: ./.github/workflows/install-tanzu-data-services-repo.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-data-services-repo.yml@main
     with:
       cluster-provider: "eks"
       tds-version: "1.13.0"
