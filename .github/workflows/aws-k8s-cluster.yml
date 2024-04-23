@@ -334,7 +334,7 @@ jobs:
   install-tanzu-cluster-essentials:
     if: inputs.action == 'create'
     needs: [obtain-base64-encoded-kubeconfig-from-cluster,install-eks-cluster-addons]
-    uses: ./.github/workflows/install-tanzu-cluster-essentials.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-cluster-essentials.yml@main
     with:
       cluster-provider: "eks"
     secrets:
@@ -349,10 +349,10 @@ jobs:
   install-tanzu-standard-repo:
     if: inputs.action == 'create'
     needs: [obtain-base64-encoded-kubeconfig-from-cluster,install-tanzu-cluster-essentials]
-    uses: ./.github/workflows/install-tanzu-standard-repo.yml
+    uses: clicktruck/platform-actions/.github/workflows/install-tanzu-standard-repo.yml@main
     with:
       cluster-provider: "eks"
-      tkg-version: "v2023.9.19"
+      tkg-version: "v2024.2.1"
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -369,7 +369,7 @@ jobs:
     uses: ./.github/workflows/install-tanzu-data-services-repo.yml
     with:
       cluster-provider: "eks"
-      tds-version: "1.12.1"
+      tds-version: "1.13.0"
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
