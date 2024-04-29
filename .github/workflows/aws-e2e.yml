@@ -194,16 +194,6 @@ jobs:
       KUBECONFIG_CONTENTS: ${{ needs.obtain-base64-encoded-kubeconfig-for-harbor-cluster.outputs.b64kubeconfig }}
       TF_BACKEND_S3_BUCKET_NAME: ${{ secrets.TF_BACKEND_S3_BUCKET_NAME }}
       AWS_KMS_ALIAS: ${{ secrets.AWS_KMS_ALIAS }}
-  create-new-project-in-harbor:
-    needs: install-harbor
-    uses: clicktruck/platform-actions/.github/workflows/create-harbor-project.yml@main
-    with:
-      api-endpoint: harbor.${{ github.event.inputs.domain }}
-      project: "tanzu"
-    secrets:
-      HARBOR_USERNAME: "admin"
-      HARBOR_PASSWORD: ${{ needs.install-harbor.outputs.harbor_admin_password }}
-      PA_TOKEN: ${{ secrets.PA_TOKEN }}
   create-tap-cluster:
     if: github.event.inputs.footprint == 'single-cluster'
     uses: ./.github/workflows/aws-k8s-cluster.yml
