@@ -44,8 +44,8 @@ There are two types of actions defined, those that can be manually triggered (i.
 | DNS Zone for base domain | [:white_check_mark:](../../../actions/workflows/aws-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/main-dns) |
 | DNS Zone for sub domain | [:white_check_mark:](../../../actions/workflows/aws-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/child-dns) |
 | EKS Cluster | [:white_check_mark:](../../../actions/workflows/aws-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster) |
-| EKS Cluster Addons | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-addons) |
-| EKS Cluster Storage Updates | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-storage) |
+| EKS Cluster Addons |  | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-addons) |
+| EKS Cluster Storage Updates |  | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-storage) |
 | Container registry | [:white_check_mark:](../../../actions/workflows/aws-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/registry) |
 | Harbor | [:white_check_mark:](../../../actions/workflows/aws-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
 | Bastion | [:white_check_mark:](../../../actions/workflows/aws-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/bastion) |
