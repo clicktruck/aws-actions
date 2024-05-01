@@ -8,7 +8,6 @@ Review this curated collection of dispatch workflows.
 
 | Action | Link |
 | :---   | :---: |
-| Clean Workflow Logs | [:white_check_mark:](../../../actions/workflows/clean-workflow-run-logs.yml) |
 | _Create workflows_ | Choose `create` before clicking on the `Run workflow` button |
 | KMS Key | [:white_check_mark:](../../../actions/workflows/aws-kms-dispatch.yml) |
 | Remote Backend Support | [:white_check_mark:](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml) |
@@ -23,6 +22,7 @@ Review this curated collection of dispatch workflows.
 | DNS Zone for base domain | [:white_check_mark:](../../../actions/workflows/aws-main-dns-dispatch.yml) |
 | Remote Backend Support | [:white_check_mark:](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml) |
 | KMS Key | [:white_check_mark:](../../../actions/workflows/aws-kms-dispatch.yml) |
+| Clean Workflow Logs | [:white_check_mark:](../../../actions/workflows/clean-workflow-run-logs.yml) |
 
 
 ### Deliberate
@@ -35,22 +35,22 @@ There are two types of actions defined, those that can be manually triggered (i.
 
 #### Modules
 
-| Module       | Github Action       | Terraform               |
+| Module       | Github Action       | Terraform             |
 | :---       | :---:               | :---:                   |
-| KMS |[:white_check_mark:](../../actions/workflows/aws-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/kms) |
-| Remote backend | [:white_check_mark:](../../actions/workflows/aws-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/tfstate-support) |
-| Keypair | [:white_check_mark:](../../actions/workflows/aws-keypair-dispatch.yml) | [:white_check_mark:](../terraform/azure/keypair) |
-| VPC | [:white_check_mark:](../../actions/workflows/aws-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/virtual-network) |
-| DNS Zone for base domain | [:white_check_mark:](../../actions/workflows/aws-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/main-dns) |
-| DNS Zone for sub domain | [:white_check_mark:](../../actions/workflows/aws-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/child-dns) |
-| EKS Cluster | [:white_check_mark:](../../actions/workflows/aws-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster) |
+| KMS |[:white_check_mark:](../../../actions/workflows/aws-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/kms) |
+| Remote backend | [:white_check_mark:](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/tfstate-support) |
+| Keypair | [:white_check_mark:](../../../actions/workflows/aws-keypair-dispatch.yml) | [:white_check_mark:](../terraform/azure/keypair) |
+| VPC | [:white_check_mark:](../../../actions/workflows/aws-virtual-network-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/virtual-network) |
+| DNS Zone for base domain | [:white_check_mark:](../../../actions/workflows/aws-main-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/main-dns) |
+| DNS Zone for sub domain | [:white_check_mark:](../../../actions/workflows/aws-child-dns-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/child-dns) |
+| EKS Cluster | [:white_check_mark:](../../../actions/workflows/aws-k8s-cluster-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster) |
 | EKS Cluster Addons | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-addons) |
 | EKS Cluster Storage Updates | [:x:] | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/cluster-storage) |
-| Container registry | [:white_check_mark:](../../actions/workflows/aws-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/registry) |
-| Harbor | [:white_check_mark:](../../actions/workflows/aws-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
-| Bastion | [:white_check_mark:](../../actions/workflows/aws-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/bastion) |
-| Secrets Manager | [:white_check_mark:](../../actions/workflows/aws-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager) |
-| Secrets | [:white_check_mark:](../../actions/workflows/aws-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager-secrets) |
+| Container registry | [:white_check_mark:](../../../actions/workflows/aws-container-registry-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/registry) |
+| Harbor | [:white_check_mark:](../../../actions/workflows/aws-harbor-dispatch.yml) | [:white_check_mark:](../terraform/k8s/harbor) |
+| Bastion | [:white_check_mark:](../../../actions/workflows/aws-bastion-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/bastion) |
+| Secrets Manager | [:white_check_mark:](../../../actions/workflows/aws-secrets-manager-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager) |
+| Secrets | [:white_check_mark:](../../../actions/workflows/aws-secrets-manager-secrets-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/secrets-manager-secrets) |
 
 
 ## Accessing credentials
