@@ -6,6 +6,8 @@ Review this curated collection of dispatch workflows.
 
 ### Quick
 
+Take this path when you want to get up-and-running as quickly as possible with the least amount of fuss.
+
 | Action | Link |
 | :---   | :---: |
 | _Create workflows_ | Choose `create` before clicking on the `Run workflow` button |
