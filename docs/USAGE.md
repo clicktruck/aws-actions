@@ -2,6 +2,19 @@
 
 Review this curated collection of dispatch workflows.
 
+## Prerequisites
+
+When [external-dns](https://kubernetes-sigs.github.io/external-dns) is installed in a target [cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html) as part of [application-templates/tanzu/aws/ingress](https://github.com/clicktruck/application-templates/tree/main/tanzu/ingress/aws), [static credentials](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#static-credentials) are employed.  This install method does not allow for [STS temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html); therefore, you'll need to maintain a separate AWS account with an IAM [user account](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#create-iam-user-and-attach-the-policy), [policy](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#iam-policyy) and [DNS zones](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html).
+
+So, after creating the user account and attaching the policy, you will need to set two [Github Action secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository):
+
+* `ROUTE53_ZONE_AWS_ACCESS_KEY_ID`
+* `ROUTE53_ZONE_AWS_SECRET_ACCESS_KEY`
+
+Setup a couple of environment variables of the same name, then use the [gh-set-secrets.sh](https://github.com/clicktruck/scripts/blob/main/gh-set-secrets.sh) script with the `--include-route53-static-credentials` option to do that.
+
+Likewise, when creating the DNS zones (using the dispatch workflows above), make sure you are entering those same credentials as inputs. You'll need to do this before attempting to create a cluster or workshop environment.
+
 ## Guides
 
 ### Quick
@@ -39,6 +52,7 @@ There are two types of actions defined, those that can be manually triggered (i.
 
 | Module       | Github Action       | Terraform             |
 | :---       | :---:               | :---:                   |
+| IAM Roles  | [:white_check_mark:](../../../actions/workflows/iam-roles-disaptch.yml) | |
 | KMS |[:white_check_mark:](../../../actions/workflows/aws-kms-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/kms) |
 | Remote backend | [:white_check_mark:](../../../actions/workflows/aws-provided-remote-backend-dispatch.yml) | [:white_check_mark:](https://github.com/clicktruck/aws-terraform/tree/main/modules/tfstate-support) |
 | Keypair | [:white_check_mark:](../../../actions/workflows/aws-keypair-dispatch.yml) | [:white_check_mark:](../terraform/azure/keypair) |
