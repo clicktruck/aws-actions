@@ -13,7 +13,7 @@ So, after creating the user account and attaching the policy, you will need to s
 
 Setup a couple of environment variables of the same name, then use the [gh-set-secrets.sh](https://github.com/clicktruck/scripts/blob/main/gh-set-secrets.sh) script with the `--include-route53-static-credentials` option to do that.
 
-Likewise, when creating the DNS zones (using the dispatch workflows above), make sure you are entering those same credentials as inputs. You'll need to do this before attempting to create a cluster or workshop environment.
+Likewise, when creating the DNS zones (using the dispatch workflows below), make sure you are entering those same credentials as inputs. You'll need to do this before attempting to create a cluster or workshop environment.
 
 ## Guides
 
