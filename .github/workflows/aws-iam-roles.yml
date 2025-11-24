@@ -33,7 +33,7 @@ jobs:
       result: ${{ steps.encode.outputs.result }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: clicktruck/scripts
     - name: Encode
@@ -51,7 +51,7 @@ jobs:
       result: ${{ steps.encode.outputs.result }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: clicktruck/scripts
     - name: Encode
@@ -73,7 +73,7 @@ jobs:
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
 
     - name: "Create IAM roles for use by EKS and ECR"
       uses: ./docker/actions/aws/tanzu-runsh-setup-action
@@ -97,7 +97,7 @@ jobs:
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
 
     - name: "Delete IAM roles for use by EKS and ECR"
       uses: ./docker/actions/aws/tanzu-runsh-setup-action
