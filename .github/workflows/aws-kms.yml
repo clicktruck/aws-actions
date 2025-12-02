@@ -53,7 +53,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       if: inputs.action == 'create'
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         repository: clicktruck/aws-terraform
 
@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Add KMS key id as secret
       env:
         GITHUB_TOKEN: ${{ secrets.PA_TOKEN }}
